@@ -17,14 +17,20 @@
   const velRouter = createRouter({
     features,
     plugins,
-    tick,
     emptyLayoutComponent: EmptySlot,
     emptyPageComponent: PageEmpty,
     errorPageComponent: Page404,
-    onNewRoute({ layoutComponent, pageComponent, route }) {
+    async onNewRoute({
+      layoutComponent,
+      pageComponent,
+      route,
+      onRouterPageMount,
+    }) {
       currentLayoutComponent = layoutComponent;
       currentPageComponent = pageComponent;
       currentRoute = route;
+      await tick();
+      onRouterPageMount(routerContainerEl);
     },
   });
 
