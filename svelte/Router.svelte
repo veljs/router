@@ -37,7 +37,7 @@
   let globalNavLinks = [];
 
   async function init() {
-    const velRouterInitialized = velRouter.init();
+    const velRouterInitialized = await velRouter.init();
     globalNavLinks = velRouterInitialized.globalNavLinks;
   }
 
