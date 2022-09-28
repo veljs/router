@@ -38,11 +38,11 @@
   init();
 
   onMount(() => {
-    velRouter.mount();
+    velRouter.mount(routerContainerEl);
   });
 
   onDestroy(() => {
-    velRouter.destroy();
+    velRouter.destroy(routerContainerEl);
   });
 </script>
 
