@@ -1,0 +1,17 @@
+{
+  "name": "@veljs/router",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "svelte": [
+    "./svelte/index.js"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "radix3": "^0.1.2",
+    "svelte": "^3.50.1"
+  }
+}

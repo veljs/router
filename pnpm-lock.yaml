@@ -1,0 +1,20 @@
+lockfileVersion: 5.4
+
+specifiers:
+  radix3: ^0.1.2
+  svelte: ^3.50.1
+
+dependencies:
+  radix3: 0.1.2
+  svelte: 3.50.1
+
+packages:
+
+  /radix3/0.1.2:
+    resolution: {integrity: sha512-Mpfd/OuX0zoJ6ojLD/RTOHvJPg6e6PjINtmYzV87kIXc5iUtDz34i7gg4SV4XjqRJTmSiYO/g9i/mKWGf4z8wg==}
+    dev: false
+
+  /svelte/3.50.1:
+    resolution: {integrity: sha512-bS4odcsdj5D5jEg6riZuMg5NKelzPtmsCbD9RG+8umU03TeNkdWnP6pqbCm0s8UQNBkqk29w/Bdubn3C+HWSwA==}
+    engines: {node: '>= 8'}
+    dev: false
