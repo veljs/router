@@ -30,7 +30,7 @@
       currentPageComponent = pageComponent;
       currentRoute = route;
       await tick();
-      onRouterPageMount(routerContainerEl);
+      onRouterPageMount(routerContainerEl, currentRoute);
     },
   });
 
