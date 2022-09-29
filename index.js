@@ -1,1 +1,2 @@
-export { default as dispatchRoute } from "./lib/dispatchRoute.js";
+export { default as dispatchRoute } from "./lib/dispatchRoute";
+export { default as createRouter } from "./lib/createRouter";
