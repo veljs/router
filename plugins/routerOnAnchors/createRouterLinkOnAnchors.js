@@ -29,23 +29,27 @@ export default function createRouterLinkOnAnchors({ dispatchRoute }) {
     }
   }
 
+  function isEligibleRouterAnchorNode(node) {
+    const href = node.getAttribute("href");
+    return (
+      node.tagName === "A" &&
+      node.getAttribute(routerLinkAttribute) === null &&
+      href &&
+      !href.startsWith("http")
+    );
+  }
+
   function onMutation(mutationList) {
     for (const mutation of mutationList) {
       if (mutation.type === "childList") {
         for (const node of mutation.addedNodes) {
-          if (
-            node.tagName === "A" &&
-            node.getAttribute(routerLinkAttribute) === null
-          ) {
+          if (isEligibleRouterAnchorNode(node)) {
             addRouterLinkEventListener(node);
           }
         }
 
         for (const node of mutation.removedNodes) {
-          if (
-            node.tagName === "A" &&
-            node.getAttribute(routerLinkAttribute) !== null
-          ) {
+          if (isEligibleRouterAnchorNode(node)) {
             removeRouterLinkEventListener(node);
           }
         }
