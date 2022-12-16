@@ -10,7 +10,6 @@ export default function createRouterLinkOnAnchors({ dispatchRoute }) {
   }
 
   function addRouterLinkEventListener(node) {
-    //console.log('addRouterLinkEventListener', node);
     const callback = createRouterLinkEventHandler(node.getAttribute("href"));
     node.addEventListener("click", callback);
     node.setAttribute(routerLinkAttribute, "");
@@ -63,7 +62,9 @@ export default function createRouterLinkOnAnchors({ dispatchRoute }) {
     apply(mountEl) {
       const $$a = mountEl.querySelectorAll(`a:not([${routerLinkAttribute}])`);
       for (const $a of $$a) {
-        addRouterLinkEventListener($a);
+        if (isEligibleRouterAnchorNode($a)) {
+          addRouterLinkEventListener($a);
+        }
       }
     },
     mount(mountEl) {
