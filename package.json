@@ -1,6 +1,6 @@
 {
   "name": "@veljs/router",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "",
   "main": "index.js",
   "scripts": {},
@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "radix3": "^0.1.2",
-    "svelte": "^3.50.1"
+    "radix3": "^1.0.0",
+    "svelte": "^3.55.0"
   }
 }

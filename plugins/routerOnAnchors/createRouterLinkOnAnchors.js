@@ -28,13 +28,17 @@ export default function createRouterLinkOnAnchors({ dispatchRoute }) {
     }
   }
 
-  function isEligibleRouterAnchorNode(node) {
+  function isEligibleRouterAnchorHrefNode(node) {
     const href = node.getAttribute("href");
+    return href && !href.startsWith("http");
+  }
+
+  function isEligibleRouterAnchorNode(node) {
     return (
+      node &&
       node.tagName === "A" &&
       node.getAttribute(routerLinkAttribute) === null &&
-      href &&
-      !href.startsWith("http")
+      isEligibleRouterAnchorHrefNode(node)
     );
   }
 
@@ -60,11 +64,11 @@ export default function createRouterLinkOnAnchors({ dispatchRoute }) {
 
   return {
     apply(mountEl) {
-      const $$a = mountEl.querySelectorAll(`a:not([${routerLinkAttribute}])`);
+      const $$a = mountEl.querySelectorAll(
+        `a:not([${routerLinkAttribute}]):not([href^=http])`
+      );
       for (const $a of $$a) {
-        if (isEligibleRouterAnchorNode($a)) {
-          addRouterLinkEventListener($a);
-        }
+        addRouterLinkEventListener($a);
       }
     },
     mount(mountEl) {
